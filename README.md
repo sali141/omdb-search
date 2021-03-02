@@ -5,9 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Requirements
 You need node.js, npm  & angular CLI installed on your machine
-    - node.js version  >= 10.19.0
-    - npm version >= 6.14.4
-    - Angular CLI = 9.1.15
+- node.js version  >= 10.19.0
+- npm version >= 6.14.4
+- Angular CLI = 9.1.15
 
 ## Installation
 Extract the provided zip file and go to the folder `omdb-search`
