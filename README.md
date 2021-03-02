@@ -10,15 +10,15 @@ You need node.js, npm  & angular CLI installed on your machine
 - Angular CLI = 9.1.15
 
 ## Installation
-Extract the provided zip file and go to the folder `omdb-search`
+Extract the provided zip file and go to the folder `omdb-search`  
 `cd omdb-search`
 
-Run below command to install the npm packages. 
+Run below command to install the npm packages.  
 `npm install`
 
 ## Run the App
-run below command to run the app on a dev server. It will navigate to `http://localhost:4200/`.
-`ng serve --open`
+run below command to run the app on a dev server. It will navigate to `http://localhost:4200/`.  
+`ng serve --open`  
 The app will automatically reload if you change any of the source files.
 
 
