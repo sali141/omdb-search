@@ -1,0 +1,20 @@
+.header_search {
+    align-items : center;
+
+    input {
+        outline: 0;
+        border-width: 0 0 1px;
+        border-color: #ecedee;
+        height: 30px;
+        margin:0 10px;
+        width: 150px;
+    }
+
+    input:focus {
+        border-color: #cecece;
+    }
+
+    input.ng-invalid.ng-touched {
+        border-color: #e41b4d;
+    }
+}

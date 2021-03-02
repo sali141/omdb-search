@@ -1,0 +1,25 @@
+<div class="movie-item shadow-box d-flex">
+    <div class="movie-item-poster">
+        <img src="{{movie.Poster}}" alt="{{movie.Title}}">
+    </div>
+    <div class="movie-item-details">
+        <h2 class="movie-item-details-title">{{movie.Title}}</h2>
+        <div class="movie-item-details-info" *ngIf="!isListItem" >
+            <h3>Plot</h3>
+            <div>{{movie.Plot}}</div>
+            <h3>Actors</h3>
+            <div>{{movie.Actors}}</div>
+            <h3>Ratings</h3>
+            <div *ngFor="let rating of movie.Ratings">
+              - {{rating.Source}} {{rating.Value}}
+            </div>
+        </div>
+        <div class="movie-item-details-footer" [ngClass]="{'details-footer' : !isListItem}" >
+            <div class="d-flex action-btn">
+                <div>{{movie.Year}}</div>
+                <button *ngIf="isListItem" type="button" (click)="onDetailsClick(movie.imdbID)" class="btn btn-primary">details</button>
+            </div>
+        </div>
+    </div>
+
+</div>

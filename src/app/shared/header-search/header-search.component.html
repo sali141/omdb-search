@@ -1,0 +1,5 @@
+<div class="d-flex  header_search">
+    <span class="hidden-xm">Search a movie</span>
+    <input type="text" name="searchText" (keyup.enter)="searchMovies()" required [(ngModel)]="searchText"  >
+    <button type="button" (click)="searchMovies()"  class="btn btn-primary">search</button>
+</div>

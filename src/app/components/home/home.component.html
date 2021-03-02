@@ -1,0 +1,26 @@
+<div class="body_content">
+    <div class="loader-wrapper" *ngIf="isLoading">
+        <div class="loader"></div>
+    </div>
+    <div class="site_container" *ngIf="!isLoading">
+        <div *ngIf="!isSearched" class="welcome-message">
+            Welcome to OMDB Search, search something in the bar above!
+        </div>   
+        <app-error-message *ngIf="errorMsg" [errorMessage]="errorMsg"></app-error-message> 
+        <div class="movie-details" [ngClass]="{'loading shadow-box' : isDetailsLoading}" >
+            <div class="d-flex justify-center" *ngIf="isDetailsLoading">
+                <div class="loader centered"></div>
+            </div>
+            <app-movie-list-item *ngIf="movieDetail && !isDetailsLoading" [movie]="movieDetail" [isListItem]="false"></app-movie-list-item>
+        </div>  
+        <div *ngIf="movies && movies.length > 0" class="movies-listing d-flex">
+            <div class="movie-box" *ngFor="let movie of movies | paginate: paginationConfig">
+                <app-movie-list-item [movie]="movie" [isListItem]="true"></app-movie-list-item>
+            </div>
+        </div> 
+        <div *ngIf="movies && movies.length > 0" class="d-flex justify-center pagination">
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>
+
