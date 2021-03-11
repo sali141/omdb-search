@@ -40,13 +40,16 @@ body {
 
 
 @media screen and (max-width: $sm_screen) {
+    body { 
+        margin: 0;
+    }
 
     h1 {
         font-size: 1em;
     }
 
     .site_container {
-        width:auto;
+        width: auto;
     }
 
     .hidden-xm {
@@ -63,6 +66,10 @@ body {
 }
 
 @media screen and (min-width: $sm_screen) {
+    body { 
+        margin: 0;
+    }
+    
     h1 {
         font-size: 1em;
     }
