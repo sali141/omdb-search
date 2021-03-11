@@ -2,7 +2,6 @@
 @import "assets/css/variables";
 @import "assets/css/button";
 @import "assets/css/loader";
-@import "assets/css/pagination";
 
 body {
     margin: 2px 0;
@@ -29,6 +28,10 @@ body {
 
 .justify-center {
     justify-content:center;
+}
+
+.justify-space-between {
+    justify-content:space-between;
 }
 
 .shadow-box {

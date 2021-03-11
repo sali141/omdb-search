@@ -1,0 +1,26 @@
+
+<div class="d-flex justify-space-between pagination">
+    <label class="pagination-caption">
+        Showing {{startCurrPageNumber}} - {{endCurrPageNumber}} of {{config.totalItems}} Items
+    </label>
+
+    <pagination-controls
+        [previousLabel]=" 'Prev' "
+        [nextLabel]=" 'Next' "
+        [screenReaderPaginationLabel]=" '' "
+        [screenReaderPageLabel]=" '' "
+        [screenReaderCurrentLabel]=" '' "
+        [id]="config.id"
+        (pageChange)="pageChanged($event)">
+    </pagination-controls>
+
+    <div class="d-flex justify-space-between pagination-info">
+        <label class="caption">Display</label>
+        <select (change)="config.currentPage=1" [(ngModel)]="config.itemsPerPage">
+            <option *ngFor="let ipp of itemsPerPageSelect" [selected]="config.itemsPerPage===ipp" [value]="ipp">{{ipp}}</option>
+        </select>
+        <label class="caption">Items per page</label>
+    </div>
+</div>
+
+

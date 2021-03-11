@@ -18,8 +18,8 @@
                 <app-movie-list-item [movie]="movie" [isListItem]="true"></app-movie-list-item>
             </div>
         </div> 
-        <div *ngIf="movies && movies.length > 0" class="d-flex justify-center pagination">
-            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        <div *ngIf="movies && movies.length > 0" >
+            <app-pagination [config]="paginationConfig"></app-pagination>
         </div>
     </div>
 </div>

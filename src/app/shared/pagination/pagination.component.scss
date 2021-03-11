@@ -1,0 +1,65 @@
+@import "~src/assets/css/variables";
+
+.pagination {
+    font-size: 12px !important;
+    align-items : center;
+    background-color: #f2f5f7;
+    margin-top: 2em;
+
+    &-caption {
+        margin-left: 1em;
+    }
+
+    &-info {
+        align-items : center;
+        label {
+            margin: 0 1em;
+        }
+
+        select {
+            border-color: #ecedee;
+            background-color: $color-white;;
+            padding: 0.5em;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .ngx-pagination {
+        .disabled {
+            color: #d2d5d9;
+        }
+    
+        a {
+            color :#3b3e3f !important;
+            border-radius: 4px !important;
+    
+            &:focus {
+                outline: none;
+            }
+    
+            &:hover {
+                background-color: #f2f5f7 !important;
+            }
+        }
+    
+        li {
+            border-radius: 4px !important;
+            margin: 0 0.5em;
+            
+        }
+    
+        .pagination-previous, .pagination-next {
+            text-transform: uppercase !important;
+            font-size: 10px !important;
+        }
+        
+        .current {
+            background : $primary !important;
+        }
+    } 
+}

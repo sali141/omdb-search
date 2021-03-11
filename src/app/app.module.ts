@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieListItemComponent } from './shared/movie-list-item/movie-list-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
         ErrorMessageComponent,
         HeaderSearchComponent,
         MovieListItemComponent,
+        PaginationComponent,
     ],
     imports: [
         BrowserModule,
