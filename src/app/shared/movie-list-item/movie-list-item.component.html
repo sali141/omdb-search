@@ -1,6 +1,6 @@
 <div class="movie-item shadow-box d-flex">
     <div class="movie-item-poster">
-        <img src="{{movie.Poster}}" alt="{{movie.Title}}">
+        <img src="{{movie.Poster === 'N/A' ? '/assets/img/default-movie.png' : movie.Poster}}" alt="{{movie.Title}}">
     </div>
     <div class="movie-item-details">
         <h2 class="movie-item-details-title">{{movie.Title}}</h2>
