@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
+import { Search } from '../../interfaces/search.interface';
+import { Movie } from '../../interfaces/movie.interface';
 
 @Component({
     selector: 'app-home',
@@ -11,8 +13,8 @@ export class HomeComponent implements OnInit {
     isLoading: boolean;
     isDetailsLoading: boolean;
     isSearched: boolean;
-    movies: any[];
-    movieDetail: any;
+    movies: Movie[];
+    movieDetail: Movie;
     paginationConfig: any;
 
     constructor(
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
     searchMovies(searchText){
         // get search result from the API via search service
         this.searchService.fetchMovies(searchText)
-            .subscribe((response: any) => {
+            .subscribe((response: Search) => {
                 this.isLoading = false; // hide the loading
                 this.isSearched = true;
 

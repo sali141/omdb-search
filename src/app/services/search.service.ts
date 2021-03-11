@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {  Subject } from 'rxjs';
+import {  Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
+import { Search } from '../interfaces/search.interface';
+import { Movie } from '../interfaces/movie.interface';
+import { map } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
@@ -19,11 +21,13 @@ export class SearchService {
         this.movieDetailsId = new Subject();
     }
 
-    fetchMovies(title: string) {
-        return this.http.get(`${environment.apiUrl}?s=${title}&type=movie&apikey=${environment.apiKey}`);
+    fetchMovies(title: string) : Observable<Search> {
+        const apiUrl = `${environment.apiUrl}?s=${title}&type=movie&apikey=${environment.apiKey}`;
+        return this.http.get<Search>(apiUrl).pipe(map(res => res));
     }
 
-    getMovieDetailsById(id: string) {
-        return this.http.get(`${environment.apiUrl}?i=${id}&type=movie&apikey=${environment.apiKey}`);
+    getMovieDetailsById(id: string) : Observable<Movie>{
+        const apiUrl = `${environment.apiUrl}?i=${id}&type=movie&apikey=${environment.apiKey}`;
+        return this.http.get<Movie>(apiUrl).pipe(map(res => res));
     }
 }
