@@ -1,10 +1,13 @@
 
+<label class="hidden-md show-xm text-center">
+    Showing {{startCurrPageNumber}} - {{endCurrPageNumber}} of {{config.totalItems}} Items
+</label>
 <div class="d-flex justify-space-between pagination">
-    <label class="pagination-caption">
+    <label class="hidden-xm pagination-caption">
         Showing {{startCurrPageNumber}} - {{endCurrPageNumber}} of {{config.totalItems}} Items
     </label>
 
-    <label class="pagination-pages-caption">Pages:</label>
+    <label class="hidden-xm pagination-pages-caption">Pages:</label>
     
     <div class="pagination-pages">
         <a *ngIf="config.currentPage > 1" (click)="pageChanged(config.currentPage - 1)">&laquo;</a>

@@ -38,6 +38,10 @@ body {
     box-shadow: 1px 1px 10px 2px $color-shadow-gray;
 }
 
+.text-center {
+    text-align: center;
+}
+
 
 @media screen and (max-width: $sm_screen) {
     body { 
@@ -54,6 +58,10 @@ body {
 
     .hidden-xm {
         display: none;
+    }
+
+    .show-xm {
+        display: block;
     }
 
     input {
@@ -81,6 +89,10 @@ body {
 @media screen and (min-width: $md_screen) {
     .site_container {
         width: 720px
+    }
+
+    .hidden-md {
+        display: none;
     }
 }
 
