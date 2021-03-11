@@ -10,12 +10,15 @@ import { Movie } from '../../interfaces/movie.interface';
 })
 export class HomeComponent implements OnInit {
     errorMsg: string;
-    isLoading: boolean;
+    searchText: string;
+    isInitialLoading: boolean;
     isDetailsLoading: boolean;
+    isMoviedLoading: boolean;
     isSearched: boolean;
     movies: Movie[];
     movieDetail: Movie;
     paginationConfig: any;
+    itemsPerPage = 10;
 
     constructor(
         private searchService: SearchService
@@ -23,10 +26,11 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.searchService.searchText.subscribe((data) => {
-            this.isLoading = true; // show the loading untill the data recieved from API
+            this.isInitialLoading = true; // show the loading untill the data recieved from API
             this.errorMsg = null;
             this.movieDetail = null;
-            this.searchMovies(data);
+            this.searchText = data;
+            this.searchMovies(1, true);
         });
 
         this.searchService.movieDetailsId.subscribe((data) => {
@@ -35,24 +39,30 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    searchMovies(searchText){
+    searchMovies(pageNo, initialSearch){
         // get search result from the API via search service
-        this.searchService.fetchMovies(searchText)
+        this.isMoviedLoading = true;
+        this.searchService.fetchMovies(this.searchText, pageNo)
             .subscribe((response: Search) => {
-                this.isLoading = false; // hide the loading
+                this.isMoviedLoading = false; // hide the loading
                 this.isSearched = true;
 
                 if (response.Error) {
                     this.errorMsg = response.Error;
+                    this.isInitialLoading = false;
                 } else if (response.Search) {
                     this.movies = response.Search;
 
-                    // set initial pagination configuration
-                    this.paginationConfig = {
-                        itemsPerPage: 6,
-                        currentPage: 1,
-                        totalItems: this.movies.length
-                    };
+                    if (initialSearch) {
+                        this.isInitialLoading = false; // hide the initial loading
+
+                        // set initial pagination configuration
+                        this.paginationConfig = {
+                            itemsPerPage: this.itemsPerPage,
+                            currentPage: pageNo,
+                            totalItems: response.totalResults
+                        };
+                    }
                 } else {
                     this.errorMsg = 'Unknown error occured';
                 }
@@ -81,6 +91,11 @@ export class HomeComponent implements OnInit {
 
     pageChanged(event){
         this.movieDetail = null;
+        this.searchMovies(event , false);
         window.scroll(0, 0);
+    }
+
+    counter(i: number) {
+        return new Array(i);
     }
 }

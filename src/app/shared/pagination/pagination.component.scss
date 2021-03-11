@@ -5,61 +5,41 @@
     align-items : center;
     background-color: $color-greenish-gray;
     margin-top: 1.5em;
+    padding: 0.5em;
 
     &-caption {
         margin-left: 1em;
+        min-width: 20%;
     }
 
-    &-info {
-        align-items : center;
-        label {
-            margin: 0 1em;
-        }
-
-        select {
-            border-color: $color-light-gray;
-            background-color: $color-white;
-            padding: 0.5em;
-
-            &:focus {
-                outline: none;
-            }
-        }
+    &-pages-caption {
+        font-size: 14px;
+        margin-right: 1em;
     }
-}
 
-::ng-deep {
-    .ngx-pagination {
-        .disabled {
-            color: $color-disabled ;
-        }
-    
+    &-pages {
         a {
-            color :$color-light-black !important;
-            border-radius: 4px !important;
-    
-            &:focus {
-                outline: none;
+            color: $color-light-black;
+            float: left;
+            padding: 0.5em 0;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 30px;
+            text-align: center;
+
+            &.active {
+                background-color: $color-primary;
+                color: $color-white;;
             }
-    
-            &:hover {
-                background-color: $color-greenish-gray!important;
+
+            &:hover:not(.active) {
+                background-color: $color-light-gray;
             }
         }
+    }
+
     
-        li {
-            border-radius: 4px !important;
-            margin: 0 0.5em;
-            
-        }
-    
-        .pagination-previous, .pagination-next {
-            text-transform: uppercase !important;
-            font-size: 10px !important;
-        }
-        
-        .current {
-            background : $color-primary !important;
-        }
-    } 
 }
+

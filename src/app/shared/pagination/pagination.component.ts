@@ -6,20 +6,26 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
+  numPages: number;
+  pageNumbers: any[] = [];
+
   @Input() config: any;
-  itemsPerPageSelect: any[];
   @Output() valueChanged = new EventEmitter();
 
-  constructor() {
-    this.itemsPerPageSelect = [6, 8, 10];
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    this.numPages = this.config.totalItems / this.config.itemsPerPage;
+
+    for (let i = 0; i < this.numPages; i++) {
+        this.pageNumbers.push(i + 1);
+        console.log(i );
+    }
   }
 
-  pageChanged(event) {
-    this.config.currentPage = event;
-    this.valueChanged.emit(true);
+  pageChanged(pageNo) {
+    this.config.currentPage = pageNo;
+    this.valueChanged.emit(pageNo);
   }
 
   get startCurrPageNumber() {

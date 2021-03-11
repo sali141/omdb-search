@@ -3,24 +3,12 @@
     <label class="pagination-caption">
         Showing {{startCurrPageNumber}} - {{endCurrPageNumber}} of {{config.totalItems}} Items
     </label>
-
-    <pagination-controls
-        [previousLabel]=" 'Prev' "
-        [nextLabel]=" 'Next' "
-        [screenReaderPaginationLabel]=" '' "
-        [screenReaderPageLabel]=" '' "
-        [screenReaderCurrentLabel]=" '' "
-        [id]="config.id"
-        (pageChange)="pageChanged($event)">
-    </pagination-controls>
-
-    <div class="d-flex justify-space-between pagination-info">
-        <label class="caption">Display</label>
-        <select (change)="config.currentPage=1; valueChanged.emit(true);" [(ngModel)]="config.itemsPerPage">
-            <option *ngFor="let ipp of itemsPerPageSelect" [selected]="config.itemsPerPage===ipp" [value]="ipp">{{ipp}}</option>
-        </select>
-        <label class="caption">Items per page</label>
-    </div>
+    <label class="pagination-pages-caption">Pages</label>
+    <div class="pagination-pages">
+        <a *ngFor='let page of this.pageNumbers' [ngClass]="{'active' : config.currentPage === page}" (click)="pageChanged(page)">
+            {{page}}
+        </a>
+    </div>  
 </div>
 
 
