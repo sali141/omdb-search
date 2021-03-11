@@ -3,11 +3,15 @@
     <label class="pagination-caption">
         Showing {{startCurrPageNumber}} - {{endCurrPageNumber}} of {{config.totalItems}} Items
     </label>
-    <label class="pagination-pages-caption">Pages</label>
+
+    <label class="pagination-pages-caption">Pages:</label>
+    
     <div class="pagination-pages">
+        <a *ngIf="config.currentPage > 1" (click)="pageChanged(config.currentPage - 1)">&laquo;</a>
         <a *ngFor='let page of this.pageNumbers' [ngClass]="{'active' : config.currentPage === page}" (click)="pageChanged(page)">
             {{page}}
         </a>
+        <a *ngIf="config.currentPage !== this.numPages" (click)="pageChanged(config.currentPage + 1)">&raquo;</a>
     </div>  
 </div>
 

@@ -2,9 +2,11 @@
     <div class="movie-item-poster">
         <img src="{{movie.Poster === 'N/A' ? '/assets/img/default-movie.png' : movie.Poster}}" alt="{{movie.Title}}">
     </div>
+
     <div class="movie-item-details">
         <h2 class="movie-item-details-title">{{movie.Title}}</h2>
-        <div class="movie-item-details-info" *ngIf="!isListItem" >
+
+        <div class="movie-item-details-info" *ngIf="!isListItem">
             <h3>Plot</h3>
             <div>{{movie.Plot}}</div>
             <h3>Actors</h3>
@@ -14,6 +16,7 @@
               - {{rating.Source}} {{rating.Value}}
             </div>
         </div>
+
         <div class="movie-item-details-footer" [ngClass]="{'details-footer' : !isListItem}" >
             <div class="d-flex action-btn">
                 <div>{{movie.Year}}</div>
@@ -21,5 +24,4 @@
             </div>
         </div>
     </div>
-
 </div>
