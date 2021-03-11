@@ -1,5 +1,7 @@
 <div class="d-flex  header_search">
-    <span class="hidden-xm">Search a movie</span>
-    <input type="text" name="searchText" (keyup.enter)="searchMovies()" required [(ngModel)]="searchText"  >
-    <button type="button" (click)="searchMovies()"  class="btn btn-primary">search</button>
+    <form id="search-form" name="search" (ngSubmit)="searchMovies()">
+        <span class="hidden-xm">Search a movie</span>
+        <input type="text" name="searchText" required [(ngModel)]="searchText"  >
+        <button type="submit" (click)="searchMovies()"  class="btn btn-primary">search</button>
+    </form>
 </div>
