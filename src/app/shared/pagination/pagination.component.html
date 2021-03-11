@@ -16,7 +16,7 @@
 
     <div class="d-flex justify-space-between pagination-info">
         <label class="caption">Display</label>
-        <select (change)="config.currentPage=1" [(ngModel)]="config.itemsPerPage">
+        <select (change)="config.currentPage=1; valueChanged.emit(true);" [(ngModel)]="config.itemsPerPage">
             <option *ngFor="let ipp of itemsPerPageSelect" [selected]="config.itemsPerPage===ipp" [value]="ipp">{{ipp}}</option>
         </select>
         <label class="caption">Items per page</label>

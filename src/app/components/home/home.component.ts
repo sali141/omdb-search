@@ -81,6 +81,6 @@ export class HomeComponent implements OnInit {
 
     pageChanged(event){
         this.movieDetail = null;
-        this.paginationConfig.currentPage = event;
+        window.scroll(0, 0);
     }
 }

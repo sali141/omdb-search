@@ -7,19 +7,21 @@
             Welcome to OMDB Search, search something in the bar above!
         </div>   
         <app-error-message *ngIf="errorMsg" [errorMessage]="errorMsg"></app-error-message> 
-        <div class="movie-details" [ngClass]="{'loading shadow-box' : isDetailsLoading}" >
-            <div class="d-flex justify-center" *ngIf="isDetailsLoading">
-                <div class="loader centered"></div>
+        <div *ngIf="isSearched && !errorMsg">
+            <div class="movie-details" [ngClass]="{'loading shadow-box' : isDetailsLoading}" >
+                <div class="d-flex justify-center" *ngIf="isDetailsLoading">
+                    <div class="loader centered"></div>
+                </div>
+                <app-movie-list-item *ngIf="movieDetail && !isDetailsLoading" [movie]="movieDetail" [isListItem]="false"></app-movie-list-item>
+            </div>  
+            <div *ngIf="movies && movies.length > 0" class="movies-listing d-flex">
+                <div class="movie-box" *ngFor="let movie of movies | paginate: paginationConfig">
+                    <app-movie-list-item [movie]="movie" [isListItem]="true"></app-movie-list-item>
+                </div>
+            </div> 
+            <div *ngIf="movies && movies.length > 0" >
+                <app-pagination (valueChanged)="pageChanged($event)" [config]="paginationConfig"></app-pagination>
             </div>
-            <app-movie-list-item *ngIf="movieDetail && !isDetailsLoading" [movie]="movieDetail" [isListItem]="false"></app-movie-list-item>
-        </div>  
-        <div *ngIf="movies && movies.length > 0" class="movies-listing d-flex">
-            <div class="movie-box" *ngFor="let movie of movies | paginate: paginationConfig">
-                <app-movie-list-item [movie]="movie" [isListItem]="true"></app-movie-list-item>
-            </div>
-        </div> 
-        <div *ngIf="movies && movies.length > 0" >
-            <app-pagination [config]="paginationConfig"></app-pagination>
         </div>
     </div>
 </div>
