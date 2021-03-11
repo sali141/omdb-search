@@ -1,7 +1,9 @@
+@import "~src/assets/css/variables";
+
 .error-message {
     text-align: center;
-    padding: 2em 1em ;
-    background-color: #fdecf0;
-    border: 1px dashed #e41b4d;
-    color : #e41b4d;
+    padding: 2em 1em;
+    background-color: $color-error-bg;
+    border: 1px dashed $color-error-red;
+    color : $color-error-red;
 }

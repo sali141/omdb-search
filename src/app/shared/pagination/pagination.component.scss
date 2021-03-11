@@ -3,8 +3,8 @@
 .pagination {
     font-size: 12px !important;
     align-items : center;
-    background-color: #f2f5f7;
-    margin-top: 2em;
+    background-color: $color-greenish-gray;
+    margin-top: 1.5em;
 
     &-caption {
         margin-left: 1em;
@@ -17,8 +17,8 @@
         }
 
         select {
-            border-color: #ecedee;
-            background-color: $color-white;;
+            border-color: $color-light-gray;
+            background-color: $color-white;
             padding: 0.5em;
 
             &:focus {
@@ -31,11 +31,11 @@
 ::ng-deep {
     .ngx-pagination {
         .disabled {
-            color: #d2d5d9;
+            color: $color-disabled ;
         }
     
         a {
-            color :#3b3e3f !important;
+            color :$color-light-black !important;
             border-radius: 4px !important;
     
             &:focus {
@@ -43,7 +43,7 @@
             }
     
             &:hover {
-                background-color: #f2f5f7 !important;
+                background-color: $color-greenish-gray!important;
             }
         }
     
@@ -59,7 +59,7 @@
         }
         
         .current {
-            background : $primary !important;
+            background : $color-primary !important;
         }
     } 
 }

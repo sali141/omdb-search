@@ -1,20 +1,22 @@
+@import "~src/assets/css/variables";
+
 .header_search {
     align-items : center;
 
     input {
         outline: 0;
         border-width: 0 0 1px;
-        border-color: #ecedee;
+        border-color: $color-light-gray;
         height: 30px;
         margin:0 10px;
         width: 150px;
     }
 
     input:focus {
-        border-color: #cecece;
+        border-color: $color-light-gray;
     }
 
     input.ng-invalid.ng-touched {
-        border-color: #e41b4d;
+        border-color: $color-error-red;
     }
 }

@@ -21,12 +21,12 @@ export class SearchService {
         this.movieDetailsId = new Subject();
     }
 
-    fetchMovies(title: string) : Observable<Search> {
+    fetchMovies(title: string): Observable<Search> {
         const apiUrl = `${environment.apiUrl}?s=${title}&type=movie&apikey=${environment.apiKey}`;
         return this.http.get<Search>(apiUrl).pipe(map(res => res));
     }
 
-    getMovieDetailsById(id: string) : Observable<Movie>{
+    getMovieDetailsById(id: string): Observable<Movie>{
         const apiUrl = `${environment.apiUrl}?i=${id}&type=movie&apikey=${environment.apiKey}`;
         return this.http.get<Movie>(apiUrl).pipe(map(res => res));
     }

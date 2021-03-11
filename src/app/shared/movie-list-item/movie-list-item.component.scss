@@ -1,10 +1,12 @@
+@import "~src/assets/css/variables";
+
 .movie-item {
     margin: 0.5em;
 
     &-poster {
         width: 160px;
         min-height: 240px ;
-        background-color: #f2f5f7;
+        background-color: $color-greenish-gray;
         img {
             max-width: 160px;
         }
@@ -18,7 +20,7 @@
             font-size: 14px;
             padding: 1em;
             box-sizing: border-box;
-            color: #3b3e3f;
+            color: $color-light-black;
             margin: 0;
         }
 
@@ -31,19 +33,20 @@
             font-size: 14px;
             padding: 0 1em;
             box-sizing: border-box;
-            color: #3b3e3f;
+            color: $color-light-black;
             margin-bottom: 1em;
         }
 
         &-footer {
-            border-top: 1px solid #ecedee;
+            border-top: 1px solid $color-light-gray;
             padding:0.5em 1em;
             position: absolute;
             bottom: 0;
             width: 100%;
             box-sizing: border-box;
+
             .action-btn {
-                color: #d1d4d8;
+                color: $color-disabled;
                 display: flex;
                 justify-content : space-between;
                 align-items : center;

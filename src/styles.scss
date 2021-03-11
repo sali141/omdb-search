@@ -6,8 +6,8 @@
 body {
     margin: 2px 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #fcfcfd;
-    color: #3b3e3f;
+    background-color: $color-body-bg ;
+    color: $color-light-black;
     font-size: 14px;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .shadow-box {
-    box-shadow: 1px 1px 10px 2px #eeeeee;
+    box-shadow: 1px 1px 10px 2px $color-shadow-gray;
 }
 
 
@@ -54,7 +54,7 @@ body {
     }
 
     input {
-        background-color: #f2f5f7;
+        background-color: $color-greenish-gray;
     }
 
     .body_content {

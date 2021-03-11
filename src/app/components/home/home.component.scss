@@ -1,8 +1,10 @@
+@import "~src/assets/css/variables";
+
 .welcome-message {
     text-align: center;
     padding: 2em 1em ;
-    background-color: #f2f5f7;
-    border: 1px dashed #ecedee;
+    background-color: $color-greenish-gray;
+    border: 1px dashed $color-light-gray;
 }
 
 .movies-listing {

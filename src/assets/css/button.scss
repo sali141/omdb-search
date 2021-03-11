@@ -12,9 +12,9 @@
     cursor: pointer;
 
     &-primary {
-        background: $primary;
-        border-color: $primary;
-        color: #fff;
+        background: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
     }
 
     &:focus {
