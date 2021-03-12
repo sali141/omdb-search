@@ -1,8 +1,8 @@
-import { Movie } from './movie.interface';
+import { OMDBMovie } from './movie.interface';
 
-export interface Search {
+export interface OMDBSearch {
     Response: string;
-    Search: Movie[];
+    Search: OMDBMovie[];
     totalResults: number;
     Error: string;
 }

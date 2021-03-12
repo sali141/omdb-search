@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
-import { Search } from '../../interfaces/search.interface';
-import { Movie } from '../../interfaces/movie.interface';
+import { OMDBSearch } from '../../interfaces/search.interface';
+import { OMDBMovie } from '../../interfaces/movie.interface';
 
 @Component({
     selector: 'app-home',
@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
     isDetailsLoading: boolean;
     isMoviedLoading: boolean;
     isSearched: boolean;
-    movies: Movie[];
-    movieDetail: Movie;
+    movies: OMDBMovie[];
+    movieDetail: OMDBMovie;
     paginationConfig: any;
     itemsPerPage = 10;
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.searchService.searchText.subscribe((data) => {
-            this.isInitialLoading = true; // show the loading untill the data recieved from API
+            this.isInitialLoading = true; // show the initial loading untill the data recieved from API
             this.errorMsg = null;
             this.movieDetail = null;
             this.searchText = data;
@@ -40,10 +40,10 @@ export class HomeComponent implements OnInit {
     }
 
     searchMovies(pageNo, initialSearch){
-        // get search result from the API via search service
         this.isMoviedLoading = true;
+        // get search result from the API via search service
         this.searchService.fetchMovies(this.searchText, pageNo)
-            .subscribe((response: Search) => {
+            .subscribe((response: OMDBSearch) => {
                 this.isMoviedLoading = false; // hide the loading
                 this.isSearched = true;
 
@@ -90,12 +90,9 @@ export class HomeComponent implements OnInit {
     }
 
     pageChanged(event){
-        this.movieDetail = null;
+        // called from pagination page number clicked event
         this.searchMovies(event , false);
+        this.movieDetail = null;
         window.scroll(0, 0);
-    }
-
-    counter(i: number) {
-        return new Array(i);
     }
 }

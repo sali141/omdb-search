@@ -1,4 +1,4 @@
-export interface Movie {
+export interface OMDBMovie {
     Title: string;
     Actors: string;
     Plot: string;

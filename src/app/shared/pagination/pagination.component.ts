@@ -15,7 +15,10 @@ export class PaginationComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    // count the number of pages
     this.numPages = Math.ceil(this.config.totalItems / this.config.itemsPerPage);
+
+    // create the page numbers array to show the pagination page number buttons
     for (let i = 0; i < this.numPages; i++) {
       this.pageNumbers.push(i + 1);
     }
@@ -32,7 +35,7 @@ export class PaginationComponent implements OnInit {
 
   get endCurrPageNumber() {
     return (
-        (this.config.currentPage * this.config.itemsPerPage) > this.config.totalItems
-      ) ? this.config.totalItems : (this.config.currentPage * this.config.itemsPerPage);
+        (this.config.currentPage * this.config.itemsPerPage) > this.config.totalItems)
+        ? this.config.totalItems : (this.config.currentPage * this.config.itemsPerPage);
   }
 }
