@@ -8,11 +8,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PaginationComponent implements OnInit {
   numPages: number;
   pageNumbers: any[] = [];
+  displayNumPages: number;
 
   @Input() config: any;
   @Output() valueChanged = new EventEmitter();
 
-  constructor() {}
+  constructor() {
+    this.displayNumPages = 10;
+  }
 
   ngOnInit(): void {
     // count the number of pages

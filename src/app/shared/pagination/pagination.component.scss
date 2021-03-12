@@ -38,6 +38,17 @@
                 background-color: $color-light-gray;
             }
         }
+
+        span {
+            color: $color-light-black;
+            float: left;
+            padding: 0.5em 0;
+            display: block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 30px;
+            text-align: center;
+        }
     }
 
     
