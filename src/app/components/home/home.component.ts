@@ -64,10 +64,12 @@ export class HomeComponent implements OnInit {
                         };
                     }
                 } else {
+                    this.isInitialLoading = false;
                     this.errorMsg = 'Unknown error occured';
                 }
             },
             (error: any) => {
+                this.isInitialLoading = false;
                 this.errorMsg = 'Unknown error occured';
             }
         );
