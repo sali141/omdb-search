@@ -4,7 +4,7 @@
     font-size: 12px !important;
     align-items : center;
     background-color: $color-greenish-gray;
-    margin-top: 1.5em;
+    margin: 1.5em 0;
     padding: 0.5em;
 
     &-caption {
@@ -18,9 +18,10 @@
     }
 
     &-pages {
+        flex-wrap:wrap;
+        justify-content:center;
         a {
             color: $color-light-black;
-            float: left;
             padding: 0.5em 0;
             text-decoration: none;
             cursor: pointer;
@@ -41,7 +42,6 @@
 
         span {
             color: $color-light-black;
-            float: left;
             padding: 0.5em 0;
             display: block;
             border-radius: 4px;
@@ -54,3 +54,7 @@
     
 }
 
+.pagination-caption-xm {
+    margin-top: 1.5em;
+    text-align: center;
+}
