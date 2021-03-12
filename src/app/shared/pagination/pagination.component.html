@@ -13,8 +13,8 @@
             <span>...</span>
         </ng-container>
         <a *ngFor='let page of this.pageNumbers' 
-            [hidden]="this.numPages > displayNumPages  &&  
-                (page > config.currentPage + (displayNumPages - 1) || page < ((config.currentPage + displayNumPages) - displayNumPages))" 
+            [hidden]="this.numPages > displayNumPages &&  
+                (page > config.currentPage + (displayNumPages - 1) || (page < ((config.currentPage + displayNumPages) - displayNumPages) && (page < this.numPages - displayNumPages + 1) ))" 
             [ngClass]="{'active' : config.currentPage === page}" (click)="pageChanged(page)">
             {{page}}
         </a>

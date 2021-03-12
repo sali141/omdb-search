@@ -14,7 +14,7 @@ export class PaginationComponent implements OnInit {
   @Output() valueChanged = new EventEmitter();
 
   constructor() {
-    this.displayNumPages = 10;
+    this.displayNumPages = 8;
   }
 
   ngOnInit(): void {
